@@ -1,0 +1,14 @@
+rootProject.name = 'frankit_project' // todo rootProject명 변경 필요
+
+include 'application:api-app'
+include 'module-java'
+
+include 'configuration:security'
+include 'configuration:feign'
+include 'configuration:springdoc'
+include 'configuration:web-common'
+include 'configuration:persistence'
+
+include 'domain:common'
+include 'domain:member'
+include 'domain:product'

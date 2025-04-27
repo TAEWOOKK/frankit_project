@@ -1,0 +1,22 @@
+springdoc:
+  group-configs:
+    - group: bo-api  # 백오피스 API 그룹
+      packages-to-scan: com.app.bo, com.app.controller
+    - group: fo-api  # 프론트오피스 API 그룹
+      packages-to-scan: com.app.fo
+    - group: common-api  # 공통 API 그룹
+      packages-to-scan: com.app.common
+---
+spring:
+  config:
+    activate.on-profile: prod
+
+---
+spring:
+  config:
+    activate.on-profile: dev
+
+---
+spring:
+  config:
+    activate.on-profile: local

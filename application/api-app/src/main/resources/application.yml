@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    include: domain, security, springdoc, web-common, persistence
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  shutdown: graceful # 처리하던 작업을 완료하고 shutdown
+
+logging:
+  level:
+    com.app: debug # todo 패키지 수정
+    org.hibernate.type: trace
+    org.hibernate.SQL: debug # logger에 출력하려면
+    org.hibernate.orm.jdbc.bind: TRACE
+
+---
+spring:
+  config:
+    activate.on-profile: prod
+
+logging:
+  level:
+    com.app: info # todo 패키지 수정
+    org.hibernate.type: info
+    org.hibernate.SQL: info
+    org.hibernate.orm.jdbc.bind: info
+
+---
+spring:
+  config:
+    activate.on-profile: dev
+
+logging:
+  level:
+    org.hibernate.type: trace
+
+
+---
+spring:
+  config:
+    activate.on-profile: local
+
+logging:
+  level:
+    org.hibernate.type: trace

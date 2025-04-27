@@ -1,0 +1,19 @@
+token:
+  secret: ${token.secret} # 엑세스 토큰 발급 시 사용할 임의의 문자열
+  access-token-expiration-time: 360000  # 60분 1000(ms) x 60(s) x 60(m)
+  refresh-token-expiration-time: 1209600000 # 2주 1000(ms) x 60 (s) x 60(m) x 24(h) x 14(d)
+
+---
+spring:
+  config:
+    activate.on-profile: prod
+
+---
+spring:
+  config:
+    activate.on-profile: dev
+
+---
+spring:
+  config:
+    activate.on-profile: local

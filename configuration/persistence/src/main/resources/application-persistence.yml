@@ -1,0 +1,66 @@
+spring:
+
+  # h2 데이터베이스 연결 필요 시 사용
+  #  datasource:
+  #    url: jdbc:h2:mem:test
+  #    username: sa
+  #    password:
+  #    driver-class-name: org.h2.Driver
+
+  jpa:
+    show-sql: true # 콘솔창에 sql 출력
+    properties:
+      default_batch_fetch_size: 500 # 일대다 컬렉션 조회 시 성능 최적화
+      hibernate:
+        format_sql: true # sql 예쁘게 출력
+        show_sql: true
+        use_sql_comment: true
+        highlight_sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false # 영속성 컨텍스트의 생존 범위를 트랜잭션 범위로 한정
+
+---
+spring:
+  config:
+    activate.on-profile: prod
+
+  jpa:
+    hibernate:
+      ddl-auto: none # 운영 환경은 ddl-auto false 처리. 테이블 등은 직접 생성 한다.
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+        use_sql_comment: false
+        highlight_sql: false
+
+---
+spring:
+  config:
+    activate.on-profile: dev
+
+---
+spring:
+  config:
+    activate.on-profile: local
+    
+    datasource:
+      driver-class-name: org.postgresql.Driver
+      url: ${spring.datasource.url}
+      username: ${spring.datasource.username}
+      password: ${spring.datasource.password}
+
+  jpa:
+    show-sql: true # 콘솔창에 sql 출력
+    properties:
+      default_batch_fetch_size: 500 # 일대다 컬렉션 조회 시 성능 최적화
+      hibernate:
+        format_sql: true # sql 예쁘게 출력
+        show_sql: false
+        use_sql_comment: true
+        highlight_sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false # 영속성 컨텍스트의 생존 범위를 트랜잭션 범위로 한정

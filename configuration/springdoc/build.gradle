@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    // 모듈 추가
+    implementation project(':module-java')
+    api 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+    api 'org.apache.commons:commons-text:1.12.0'
+}
+
+bootJar.enabled = false
+jar.enabled = true

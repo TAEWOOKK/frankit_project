@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+bootJar.enabled = false
+jar.enabled = true
+
+dependencies {
+    // 모듈 추가
+    implementation project(':module-java')
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    api 'org.springframework.boot:spring-boot-starter-validation'
+}

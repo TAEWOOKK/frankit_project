@@ -1,0 +1,21 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000 # 커넥션 타임아웃 설정
+        readTimeout: 5000    # 리드 타임아웃 설정
+
+---
+spring:
+  config:
+    activate.on-profile: prod
+
+---
+spring:
+  config:
+    activate.on-profile: dev
+
+---
+spring:
+  config:
+    activate.on-profile: local

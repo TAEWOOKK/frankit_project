@@ -1,9 +1,9 @@
 package com.app.bo.product.service;
 
-import com.app.bo.product.dto.ProductOptionDetailPostRequestDto;
-import com.app.bo.product.dto.ProductOptionDetailPostResponseDto;
-import com.app.bo.product.dto.ProductPostRequestDto;
-import com.app.bo.product.dto.ProductPostResponseDto;
+import com.app.bo.product.dto.request.ProductOptionDetailPostRequestDto;
+import com.app.bo.product.dto.response.ProductOptionDetailPostResponseDto;
+import com.app.bo.product.dto.request.ProductPostRequestDto;
+import com.app.bo.product.dto.response.ProductPostResponseDto;
 import com.app.domain.product.constant.ProductOptionType;
 import com.app.domain.product.entity.Product;
 import com.app.domain.product.entity.ProductOptionDetail;

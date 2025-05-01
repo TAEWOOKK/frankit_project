@@ -1,9 +1,9 @@
 package com.app.bo.product.controller;
 
-import com.app.bo.product.dto.ProductOptionDetailPostRequestDto;
-import com.app.bo.product.dto.ProductOptionDetailPostResponseDto;
-import com.app.bo.product.dto.ProductPostRequestDto;
-import com.app.bo.product.dto.ProductPostResponseDto;
+import com.app.bo.product.dto.request.ProductOptionDetailPostRequestDto;
+import com.app.bo.product.dto.response.ProductOptionDetailPostResponseDto;
+import com.app.bo.product.dto.request.ProductPostRequestDto;
+import com.app.bo.product.dto.response.ProductPostResponseDto;
 import com.app.bo.product.service.BoProductApplicationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

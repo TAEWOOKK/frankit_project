@@ -1,4 +1,4 @@
-package com.app.bo.product.dto;
+package com.app.bo.product.dto.request;
 
 import com.app.domain.product.constant.ProductOptionType;
 import com.app.domain.product.entity.Product;

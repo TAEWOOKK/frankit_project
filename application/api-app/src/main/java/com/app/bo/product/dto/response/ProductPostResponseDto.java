@@ -1,4 +1,4 @@
-package com.app.bo.product.dto;
+package com.app.bo.product.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

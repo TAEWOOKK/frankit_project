@@ -1,4 +1,4 @@
-package com.app.bo.product.dto;
+package com.app.bo.product.dto.request;
 
 import com.app.domain.product.entity.ProductOptionDetail;
 import io.swagger.v3.oas.annotations.media.Schema;

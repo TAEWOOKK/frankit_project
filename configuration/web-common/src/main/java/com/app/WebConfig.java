@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowCredentials(true)
                 .allowedOrigins(
                     "http://localhost:3000/",
-                        "http://localhost:3001/", "https://codeindesign.co.kr", "https://module-frontend.codeindesign.kr"
+                        "http://localhost:3001/"
                 )
                 .allowedMethods(
                         HttpMethod.GET.name(),

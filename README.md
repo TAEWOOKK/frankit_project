@@ -21,8 +21,6 @@
     - **모듈 설명 :** 핵심 도메인 로직을 갖는 모듈로 jpa를 활용하여 구현합니다.
     - **도메인 모듈별 분리 :** 도메인 별로 모듈을 관리합니다. (ex) 강의 플랫폼과 관련된 도메인의 경우 lecture 모듈을 신규로 생성하여 구현
     - **도메인 모듈간 의존성 :** 도메인 모듈간에는 common 모듈을 제외하고는 서로 참조하지 않도록합니다.
-- **infrastructure**
-    - **모듈 설명** : 메시징 및 외부 시스템 통합과 같은 하위 계층과 직접적으로 관련된 로직들을 모듈로 관리합니다. (ex) kafka, cache, sms, email 등
 - **module-java**
     - **모듈 설명 :** 순수 자바 클래스로 이루어져 있으며 프로젝트 전반에서 사용합니다.
 
@@ -38,10 +36,19 @@
         - (ex) `NotNull={0}은(는) 필수 입력 값 입니다.`
 - 비즈니스 수행 중 던지는 예외는 ErrorType Enum에 에러메세지와 에러코드를 관리합니다.
 
-## 4. API 문서
-
 ### swagger 접속 경로
 
 프론트와 통신을 위한 API 문서는 Swagger를 통해 작성합니다. <br>
 로컬 Swagger 문서 접속 URI : http://localhost:8080/swagger-ui/index.html
+
+### 환경 변수
+
+-Dspring.profiles.active=local
+-Dspring.datasource.url=jdbc:postgresql://localhost:5432/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+-Dspring.datasource.username=kto5294
+-Dspring.datasource.password=qwer1234
+-Dtoken.secret=kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!
+-Dcrypt.algorithm=AES
+-Dcrypt.transformation=AES
+-Dcrypt.key=1234567890123456
 

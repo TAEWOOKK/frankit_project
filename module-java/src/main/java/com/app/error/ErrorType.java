@@ -35,6 +35,11 @@ public enum ErrorType {
     PRODUCT_OPTION_DETAIL_NOT_FOUND("P-004", "존재하지 않는 상품 상세 옵션입니다."),
     PRODUCT_OPTION_NAME_NULL("P-005", "상품 옵션의 이름은 필수입니다."),
     PRODUCT_OPTION_DETAIL_NAME_DUPLICATE("P-006", "상품 옵션 상세 이름이 중복되었습니다."),
+    PRODUCT_OPTION_MAX_COUNT("P-007", "상품 옵션은 최대 3개까지 등록 가능합니다."),
+    PRODUCT_NOT_FOUND("P-008", "존재하지 않는 상품입니다."),
+    PRODUCT_OPTION_TYPE_NULL("P-009", "상품 옵션의 타입은 필수입니다."),
+    PRODUCT_OPTION_NOT_FOUND("P-010", "존재하지 않는 상품 옵션입니다."),
+    PRODUCT_OPTION_DETAIL_USED("P-011", "해당 상품 옵션 상세는 사용중입니다."),
     // 기타 에러
     SERVER_ERROR("E-001", "알 수 없는 에러가 발생하였습니다. 잠시 후에 시도해주세요."),
     ILLEGAL_ERROR("E-002", "잘못된 인수가 발견되어 에러가 발생했습니다. 적절한 인수로 시도해주세요.")

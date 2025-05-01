@@ -1,7 +1,10 @@
 package com.app.domain.member.service;
 
+import com.app.domain.member.constant.Role;
 import com.app.domain.member.entity.Member;
+import com.app.domain.member.entity.MemberRole;
 import com.app.domain.member.repository.MemberRepository;
+import com.app.domain.member.repository.MemberRoleRepository;
 import com.app.error.ErrorType;
 import com.app.error.exception.EntityNotFoundException;
 import com.app.error.exception.UnauthorizedException;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 회원과 관련된 비즈니스 로직을 처리하는 서비스 클래스입니다.
@@ -22,6 +26,7 @@ public class MemberService {
 
     // 회원 저장소를 참조하기 위한 리포지토리
     private final MemberRepository memberRepository;
+    private final MemberRoleRepository memberRoleRepository;
 
     /**
      * 주어진 리프레시 토큰으로 회원을 조회하는 메서드입니다.
@@ -60,5 +65,19 @@ public class MemberService {
                 .orElseThrow(() -> new EntityNotFoundException(ErrorType.MEMBER_NOT_EXISTS));
     }
 
+    @Transactional
+    public Member registerMember(Member member, List<Role> roles) {
+
+        // 회원 정보를 저장
+        member = memberRepository.save(member);
+        Long memberId = member.getMemberId();
+
+        // 회원 역할 정보를 저장
+        List<MemberRole> memberRoles = roles.stream().map(role -> MemberRole.of(role, memberId)).toList();
+        memberRoleRepository.saveAll(memberRoles);
+
+        // 등록된 회원을 반환
+        return member;
+    }
 }
 

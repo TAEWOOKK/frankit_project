@@ -69,4 +69,15 @@ public class ProductOption {
             product.getProductOptions().add(this);
         }
     }
+
+    public void updateProductOption(String productOptionName,
+                                 ProductOptionType productOptionType,
+                                 String productOptionDescription,
+                                 ProductOptionDetail productOptionDetail
+    ) {
+        this.productOptionName = productOptionName;
+        this.productOptionType = productOptionType;
+        this.productOptionDescription = productOptionDescription;
+        this.productOptionDetail = productOptionDetail;
+    }
 }

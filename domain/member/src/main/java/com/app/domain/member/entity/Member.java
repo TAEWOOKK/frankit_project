@@ -65,10 +65,6 @@ public class Member extends BaseEntity {
                 .build();
     }
 
-    public void updateMemberInfo(String name) {
-        this.name = name;
-    }
-
     public void updateRefreshToken(String refreshToken, Date refreshTokenExpireTime) {
         this.refreshToken = refreshToken;
         this.tokenExpirationTime = DateUtils.convertToLocalDateTime(refreshTokenExpireTime);
@@ -83,16 +79,5 @@ public class Member extends BaseEntity {
      */
     public void validateMemberStatus() {
         if (this.status == MemberStatus.DEACTIVATE) throw new BadRequestException(ErrorType.ALREADY_DEACTIVATE);
-    }
-
-    /**
-     * 비밀번호, 비밀번호 확인 같은지 체크
-     */
-    public static void checkPasswordConfirmSame(String password, String confirmPassword) {
-        if (!password.equals(confirmPassword)) throw new BadRequestException(ErrorType.NOT_SAME_PASSWORD);
-    }
-
-    public void updateStatus(MemberStatus status) {
-        this.status = status;
     }
 }

@@ -73,10 +73,10 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         FilterChain chain
     ) throws IOException, jakarta.servlet.ServletException {
         // TODO: 로컬에서 프론트/백엔드 풀스택으로 진행하는 경우 mock user가 아닌 실제 유저 데이터를 불러와야해서 임시로 주석처리하였음
-        if (activeProfile.equals("local")) {
-            mockAuthenticationInLocal(request, response, chain);
-            return;
-        }
+//        if (activeProfile.equals("local")) {
+//            mockAuthenticationInLocal(request, response, chain);
+//            return;
+//        }
 
         // 1. Authorization Header 검증
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;

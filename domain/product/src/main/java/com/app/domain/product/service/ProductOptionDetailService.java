@@ -31,4 +31,9 @@ public class ProductOptionDetailService {
     public ProductOptionDetail createProductOptionDetail(ProductOptionDetail productOptionDetail) {
         return productOptionDetailRepository.save(productOptionDetail);
     }
+
+    public void deleteProductOptionDetailById(Long productOptionDetailId) {
+
+        productOptionDetailRepository.deleteById(productOptionDetailId);
+    }
 }

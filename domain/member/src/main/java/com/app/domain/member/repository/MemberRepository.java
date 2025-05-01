@@ -1,6 +1,5 @@
 package com.app.domain.member.repository;
 
-import com.app.domain.member.constant.MemberType;
 import com.app.domain.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,8 +10,4 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findByEmail(String email);
 
     Optional<Member> findByRefreshToken(String refreshToken);
-
-    Optional<Member> findByLoginId(String loginId);
-
-    Optional<Member> findByMemberId(Long memberId);
 }

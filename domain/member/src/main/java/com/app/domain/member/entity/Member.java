@@ -23,10 +23,7 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
-    @Column(nullable = false, length = 200, updatable = false, unique = true)
-    private String loginId;
-
-    @Column(length = 50)
+    @Column(length = 50, updatable = false, unique = true)
     private String email;
 
     @Column(length = 200)
@@ -47,20 +44,18 @@ public class Member extends BaseEntity {
     private LocalDateTime deletedAt;
 
     @Builder(access = AccessLevel.PRIVATE)
-    private Member(String email, String password, String name, String loginId, MemberStatus status) {
+    private Member(String email, String password, String name, MemberStatus status) {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.loginId = loginId;
         this.status = status;
     }
 
-    public static Member createMember(String email, String password, String name, String loginId) {
+    public static Member createMember(String email, String password, String name) {
         return Member.builder()
                 .email(email)
                 .password(password)
                 .name(name)
-                .loginId(loginId)
                 .status(MemberStatus.ACTIVE)
                 .build();
     }

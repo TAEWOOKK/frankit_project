@@ -1,7 +1,5 @@
 package com.app.bo.member;
 
-import com.app.domain.member.constant.MemberStatus;
-import com.app.domain.member.constant.MemberType;
 import com.app.domain.member.constant.Role;
 import com.app.domain.member.entity.Member;
 import com.app.domain.member.repository.MemberRepository;
@@ -32,7 +30,7 @@ public class Seeder implements ApplicationRunner {
     }
 
     private void createAdminMember() {
-        String email = "test@admin.com";
+        String email = "admin@admin.com";
 
         if (memberRepository.findByEmail(email).isPresent()) {
             return;
@@ -40,9 +38,8 @@ public class Seeder implements ApplicationRunner {
 
         Member member = Member.createMember(
                 email,
-                passwordEncoder.encode("1234"),
-                "어드민 테스트 계정",
-                ""
+                passwordEncoder.encode("Admin1234"),
+                "어드민 테스트 계정"
         );
         memberService.registerMember(member, List.of(Role.ROLE_SUPER_ADMIN, Role.ROLE_ADMIN));
     }

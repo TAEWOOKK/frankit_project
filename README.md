@@ -1,11 +1,14 @@
 ## 1.프로젝트 설명
 
-현재 프로젝트는 code-in-design의 백엔드 개발을 위한 Spring, Java 기반의 템플릿 프로젝트 입니다. <br>
-신규 개발을 할 경우 현재 프로젝트 기반으로 신규 레포지토리를 생성하며 필요없는 모듈은 삭제 후 개발을 진행합니다.
+해당 템플릿은 **도메인 기반 설계(Domain-Oriented Design)**와 모듈 분리를 기반으로 구성되어 있으며, 
+JPA의 **더티 체킹(Dirty Checking)** 기능을 활용하여 엔티티의 필드 값이 변경되면 자동으로 업데이트가 반영됩니다. 
+또한, 부모 엔티티를 저장할 때 연관된 자식 엔티티들도 함께 저장될 수 있도록 JPA의 **연관관계 매핑 및 cascade 설정**을 적극 활용하고 있습니다.
 
+Swagger 문서에서는 API 사용성을 높이기 위해 Enum 타입을 문서화할 수 있도록 전역 설정 메서드를 정의하여, 각 Enum 항목의 의미를 명확하게 확인할 수 있도록 지원합니다.
+이로 인해 프론트엔드 및 외부 사용자들이 API 명세를 보다 쉽게 이해할 수 있습니다.
 ## 2.사용 기술 및 구조
 
-- Java 17
+- Java 23
 - SpringBoot 3.3.2
 - **application**
     - **모듈 설명** : 애플리케이션 구현 로직들이 위치합니다. application 모듈에는 컨트롤러 클래스와 애플리케이션 서비스가 위치합니다. 애플리케이션 서비스는 도메인 서비스를 주입 받아서 도메인
@@ -43,12 +46,14 @@
 
 ### 환경 변수
 
--Dspring.profiles.active=local
--Dspring.datasource.url=jdbc:postgresql://localhost:5432/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
--Dspring.datasource.username=kto5294
--Dspring.datasource.password=qwer1234
--Dtoken.secret=kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!
--Dcrypt.algorithm=AES
--Dcrypt.transformation=AES
+-Dspring.profiles.active=local<br>
+-Dspring.datasource.url=jdbc:postgresql://localhost:5432/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8<br>
+-Dspring.datasource.username=kto5294<br>
+-Dspring.datasource.password=qwer1234<br>
+-Dtoken.secret=kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!kimtaewookkJwtTokenSercet!<br>
+-Dcrypt.algorithm=AES<br>
+-Dcrypt.transformation=AES<br>
 -Dcrypt.key=1234567890123456
+
+
 

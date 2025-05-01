@@ -2,6 +2,7 @@ package com.app.domain.product.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,9 +15,17 @@ public class ProductOptionDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productOptionDetailId;
 
+    @Column(nullable = false, unique = true)
     private String productOptionDetailName;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_option_id", nullable = false)
-    private ProductOption productOption;
+    @Builder(access = AccessLevel.PRIVATE)
+    public ProductOptionDetail(String productOptionDetailName) {
+        this.productOptionDetailName = productOptionDetailName;
+    }
+
+    public static ProductOptionDetail createProductOptionDetail(String productOptionDetailName) {
+        return ProductOptionDetail.builder()
+            .productOptionDetailName(productOptionDetailName)
+            .build();
+    }
 }

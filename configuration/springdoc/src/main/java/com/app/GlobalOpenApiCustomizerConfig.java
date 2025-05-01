@@ -22,7 +22,6 @@ public class GlobalOpenApiCustomizerConfig {
     @Bean
     public OpenApiCustomizer globalApiCustomizer(RequestMappingHandlerMapping handlerMapping) {
         return openApi -> {
-            log.info("글로벌 OpenApiCustomizer 실행 시작");
             Paths paths = openApi.getPaths();
             // HandlerMapping을 통해 API의 매핑 정보와 HandlerMethod를 가져옴
             Map<RequestMappingInfo, HandlerMethod> handlerMethods = handlerMapping.getHandlerMethods();
@@ -35,7 +34,6 @@ public class GlobalOpenApiCustomizerConfig {
                 }
                 // Swagger OpenAPI에 등록된 경로와 일치하는지 확인
                 if (!paths.containsKey(path)) {
-                    log.debug("OpenAPI에 해당 경로가 없음: {}", path);
                     return;
                 }
                 PathItem pathItem = paths.get(path);

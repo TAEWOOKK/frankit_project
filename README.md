@@ -45,16 +45,3 @@
 프론트와 통신을 위한 API 문서는 Swagger를 통해 작성합니다. <br>
 로컬 Swagger 문서 접속 URI : http://localhost:8080/swagger-ui/index.html
 
-## 5. OAUTH 인증
-
-### 로그인 관련
-
-소셜 로그인 기능을 제공하며 구글, 네이버, 카카오 로그인을 제공합니다.<br>
-로그인 요청 예시 url (redirec_uri에는 서버로부터 토큰을 전달받을 프론트 주소를 기입합니다.) <br>
-(ex) http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:3000/token <br>
-(ex) http://localhost:8080/oauth2/authorization/naver?redirect_uri=http://localhost:3000/token <br>
-(ex) http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/token <br>
-(ex) 서버도메인주소/oauth2/authorization/google?redirect_uri=http://localhost:3000/token (서버 요청 시) <br>
-(ex) 서버도메인주소/oauth2/authorization/naver?redirect_uri=http://localhost:3000/token (서버 요청 시) <br>
-(ex) 서버도메인주소/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/token (서버 요청 시)
-
